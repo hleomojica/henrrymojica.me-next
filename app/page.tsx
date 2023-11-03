@@ -85,11 +85,11 @@ async function ChannelLink({ img, name, link }: ChannelLinkProps) {
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-start gap-5">
-      <h1 className="text-2xl font-bold">Hey, I'm Henrry Mojica 👋</h1>
+    <div className="flex flex-col items-start gap-5">
+      <h1 className="text-2xl font-bold">Hey, I&apos;m Henrry Mojica 👋</h1>
       <div className="w-full h-full">
        <p className="text-md">
-       Highly skilled Full-stack Software Developer with 4+ years of experience. I'm dedicated to crafting top-tier software solutions, adept at adapting to new technologies, and skilled in maintaining and upgrading applications. Collaboration is at the core of my work, driving successful outcomes through effective communication. I'm committed to continuous professional growth to stay at the forefront of the industry.
+       Highly skilled Full-stack Software Developer with 4+ years of experience. I&apos;m dedicated to crafting top-tier software solutions, adept at adapting to new technologies, and skilled in maintaining and upgrading applications. Collaboration is at the core of my work, driving successful outcomes through effective communication. I&apos;m committed to continuous professional growth to stay at the forefront of the industry.
        </p>
        <div className="my-8 flex flex-col sm:flex-row space-x-0 sm:space-x-4 space-y-4 sm:space-y-0 w-full">
         <Suspense fallback={<ChannelSkeleton />}>
