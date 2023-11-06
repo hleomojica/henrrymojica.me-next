@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/eslint-plugin-next": "^14.0.1",
     "@vercel/analytics": "^1.1.1",
     "geist": "^1.0.0",
     "next": "14.0.1",
