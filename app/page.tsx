@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import linkedin from 'public/images/linkedin.svg';
 import github from 'public/images/github.svg';
 import { StaticImageData } from 'next/image';
+import ExperienceList from './components/Experience/List';
 
 function ChannelSkeleton() {
   return (
@@ -80,6 +81,12 @@ export default function Home() {
           communication. I&apos;m committed to continuous professional growth to
           stay at the forefront of the industry.
         </p>
+
+        <div className='my-8 flex w-full flex-row space-x-0 space-y-4 sm:flex-col sm:space-x-4 sm:space-y-0'>
+          <h1 className='mb-2 text-xl'>Experience</h1>
+          <ExperienceList experiences={[]} />
+        </div>
+
         <div className='my-8 flex w-full flex-col space-x-0 space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0'>
           <Suspense fallback={<ChannelSkeleton />}>
             <ChannelLink

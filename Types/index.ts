@@ -1,5 +1,2 @@
-import experience from './experience';
-
-export default {
-    experience: experience,
-};
+// index.ts
+export type { ExperienceItem } from './ExperienceItem';

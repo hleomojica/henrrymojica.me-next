@@ -1,8 +1,7 @@
-type ExperienceItem = {
+export type ExperienceItem = {
+  id: number;
   name: string;
   company: string;
   duration: string;
   description: string;
 }
-
-export default ExperienceItem;
