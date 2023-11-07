@@ -4,8 +4,6 @@ import linkedin from 'public/images/linkedin.svg';
 import github from 'public/images/github.svg';
 import { StaticImageData } from "next/image"
 
-
-
 function ChannelSkeleton() {
   return (
     <>
@@ -38,7 +36,6 @@ interface ChannelLinkProps {
 }
 
 async function ChannelLink({ img, name, link }: ChannelLinkProps) {
-
   return (
     <a
       href={link}
@@ -55,7 +52,6 @@ async function ChannelLink({ img, name, link }: ChannelLinkProps) {
             sizes="20vw"
             className="border border-neutral-200 dark:border-neutral-700 rounded-full h-12 w-12"
           />
-          
         </div>
         <div className="flex flex-col">
           <p className="font-semibold text-neutral-900 dark:text-neutral-100">
