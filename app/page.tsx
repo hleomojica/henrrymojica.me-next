@@ -4,7 +4,7 @@ import linkedin from 'public/images/linkedin.svg';
 import github from 'public/images/github.svg';
 import { StaticImageData } from 'next/image';
 import ExperienceList from './components/Experience/List';
-import { Experience } from '@/types';
+import { Experience } from './../types/';
 
 const experiences: Experience[] = [];
 

@@ -26,9 +26,6 @@
       "@/*": [
         "./*"
       ],
-      "@/types/*": [
-        "/types/*"
-      ]
     }
   },
   "include": [
@@ -40,9 +37,4 @@
   "exclude": [
     "node_modules"
   ],
-  "paths": {
-    "@/types/*": [
-      "/types/*"
-    ]
-  }
 }
