@@ -4,9 +4,9 @@ import linkedin from 'public/images/linkedin.svg';
 import github from 'public/images/github.svg';
 import { StaticImageData } from 'next/image';
 import ExperienceList from './components/Experience/List';
-import { ExperienceItem } from '@/types';
+import { Experience } from '@/types';
 
-const experiences: ExperienceItem[] = [];
+const experiences: Experience[] = [];
 
 function ChannelSkeleton() {
   return (
