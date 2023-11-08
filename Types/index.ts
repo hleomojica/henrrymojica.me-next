@@ -1,2 +1,2 @@
 // index.ts
-export type { Experience } from './ExperienceItem';
+export * from './experience.type';
