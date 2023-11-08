@@ -26,8 +26,8 @@
       "@/*": [
         "./*"
       ],
-      "@typesitos/*": [
-        "./typesitos/*"
+      "@types/*": [
+        "./types/*"
       ],
     }
   },
@@ -36,7 +36,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "./typesitos/**/*.ts"
+    "./types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
