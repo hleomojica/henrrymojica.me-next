@@ -1,5 +1,5 @@
 import Item from './Item';
-import { Experience } from '@/types';
+import { Experience } from '../../../types/';
 
 export default function ExperienceList({
   experiences,
