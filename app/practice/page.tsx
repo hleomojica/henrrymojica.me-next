@@ -2,7 +2,6 @@
 import { product } from '@/types/product.type';
 import Image from 'next/image';
 import useProducts from './hooks/useProducts';
-import BasicJavascript from './study/BasicJavascript';
 
 type IproductProps = {
   products: product[];
@@ -73,7 +72,6 @@ export default function Page() {
       <h1 className='text-2xl font-bold'>Practice</h1>
       <div className='mb-2 flex flex-col'>
         <h2 className='text-xl'> Basic JS</h2>
-        <BasicJavascript />
         <hr />
       </div>
       <div className='flex flex-col'>
