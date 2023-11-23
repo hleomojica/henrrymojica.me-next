@@ -1,10 +1,12 @@
+'use client';
 import Image from 'next/image';
-import { Suspense } from 'react';
+import { useState, Suspense } from 'react';
 import linkedin from 'public/images/linkedin.svg';
 import github from 'public/images/github.svg';
 import { StaticImageData } from 'next/image';
 import ExperienceList from './components/Experience/List';
 import { Experience } from '@/types/index';
+import { ThemeContext } from './context/MainContext.ts';
 
 const experiences: Experience[] = [];
 
@@ -71,42 +73,45 @@ async function ChannelLink({ img, name, link }: ChannelLinkProps) {
 }
 
 export default function Home() {
+  const [theme, setTheme] = useState('dark');
   return (
-    <div className='flex flex-col items-start gap-5'>
-      <h1 className='text-2xl font-bold'>Hey, I&apos;m Henrry Mojica 👋</h1>
-      <div className='h-full w-full'>
-        <p className='text-md'>
-          Highly skilled Full-stack Software Developer with 4+ years of
-          experience. I&apos;m dedicated to crafting top-tier software
-          solutions, adept at adapting to new technologies, and skilled in
-          maintaining and upgrading applications. Collaboration is at the core
-          of my work, driving successful outcomes through effective
-          communication. I&apos;m committed to continuous professional growth to
-          stay at the forefront of the industry.
-        </p>
+    <ThemeContext.provider value={theme}>
+      <div className='flex flex-col items-start gap-5'>
+        <h1 className='text-2xl font-bold'>Hey, I&apos;m Henrry Mojica 👋</h1>
+        <div className='h-full w-full'>
+          <p className='text-md'>
+            Highly skilled Full-stack Software Developer with 4+ years of
+            experience. I&apos;m dedicated to crafting top-tier software
+            solutions, adept at adapting to new technologies, and skilled in
+            maintaining and upgrading applications. Collaboration is at the core
+            of my work, driving successful outcomes through effective
+            communication. I&apos;m committed to continuous professional growth
+            to stay at the forefront of the industry.
+          </p>
 
-        {experiences.length > 0 && (
-          <div className='space-y-4sm:space-x-4 my-8 flex w-full flex-col space-x-0 sm:space-y-0'>
-            <h1 className='mb-2 text-xl'>Experience</h1>
-            <ExperienceList experiences={experiences} />
+          {experiences.length > 0 && (
+            <div className='space-y-4sm:space-x-4 my-8 flex w-full flex-col space-x-0 sm:space-y-0'>
+              <h1 className='mb-2 text-xl'>Experience</h1>
+              <ExperienceList experiences={experiences} />
+            </div>
+          )}
+
+          <div className='my-8 flex w-full flex-col space-x-0 space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0'>
+            <Suspense fallback={<ChannelSkeleton />}>
+              <ChannelLink
+                img={linkedin}
+                name='Henrry Mojica'
+                link='https://www.linkedin.com/in/hleomojica'
+              />
+              <ChannelLink
+                img={github}
+                name='@hleomojica'
+                link='https://github.com/hleomojica'
+              />
+            </Suspense>
           </div>
-        )}
-
-        <div className='my-8 flex w-full flex-col space-x-0 space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0'>
-          <Suspense fallback={<ChannelSkeleton />}>
-            <ChannelLink
-              img={linkedin}
-              name='Henrry Mojica'
-              link='https://www.linkedin.com/in/hleomojica'
-            />
-            <ChannelLink
-              img={github}
-              name='@hleomojica'
-              link='https://github.com/hleomojica'
-            />
-          </Suspense>
         </div>
       </div>
-    </div>
+    </ThemeContext.provider>
   );
 }
