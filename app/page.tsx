@@ -6,7 +6,7 @@ import github from 'public/images/github.svg';
 import { StaticImageData } from 'next/image';
 import ExperienceList from './components/Experience/List';
 import { Experience } from '@/types/index';
-import { ThemeContext } from './context/MainContext.ts';
+import { ThemeContext } from './context/MainContext';
 
 const experiences: Experience[] = [];
 
@@ -75,7 +75,7 @@ async function ChannelLink({ img, name, link }: ChannelLinkProps) {
 export default function Home() {
   const [theme, setTheme] = useState('dark');
   return (
-    <ThemeContext.provider value={theme}>
+    <ThemeContext.Provider value={theme}>
       <div className='flex flex-col items-start gap-5'>
         <h1 className='text-2xl font-bold'>Hey, I&apos;m Henrry Mojica 👋</h1>
         <div className='h-full w-full'>
@@ -112,6 +112,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </ThemeContext.provider>
+    </ThemeContext.Provider>
   );
 }
