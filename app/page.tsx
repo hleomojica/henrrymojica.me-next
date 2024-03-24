@@ -77,9 +77,11 @@ export default function Home() {
   return (
     <ThemeContext.Provider value={theme}>
       <div className='flex flex-col items-start gap-5'>
-        <h1 className='text-2xl font-bold'>Hey, I&apos;m Henrry Mojica 👋</h1>
+        <h1 className='text-2xl font-bold dark:text-neutral-100'>
+          Hey, I&apos;m Henrry Mojica 👋
+        </h1>
         <div className='h-full w-full'>
-          <p className='text-md'>
+          <p className='text-md dark:text-neutral-100'>
             Highly skilled Full-stack Software Developer with 4+ years of
             experience. I&apos;m dedicated to crafting top-tier software
             solutions, adept at adapting to new technologies, and skilled in
