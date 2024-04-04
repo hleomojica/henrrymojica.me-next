@@ -12,6 +12,13 @@ export const metadata: Metadata = {
   description: 'Software Engineer',
 };
 
+import { storyblokInit, apiPlugin } from '@storyblok/react/rsc';
+
+storyblokInit({
+  accessToken: process.env.SB_ACCESS_TOKEN,
+  use: [apiPlugin],
+});
+
 export default function RootLayout({
   children,
 }: {
