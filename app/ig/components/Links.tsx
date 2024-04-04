@@ -1,12 +1,12 @@
 import Image from 'next/image';
 
-export default function Link() {
+function Link() {
   return (
     <div className='flex flex-col items-center gap-2  text-white'>
       <h2 className='font-semibold'>Header</h2>
       <a
         href='#'
-        className='relative w-full rounded-full bg-white text-center text-[#82512e] hover:bg-gray-200'
+        className='relative w-full transform rounded-full bg-white text-center  text-[#82512e] transition-transform duration-200 hover:scale-105 hover:bg-gray-200 '
       >
         <div className='flex items-center justify-center px-6 py-4'>
           <Image
@@ -19,6 +19,16 @@ export default function Link() {
           <span className=''>Link 1</span>
         </div>
       </a>
+    </div>
+  );
+}
+
+export default function Links() {
+  return (
+    <div className='w-full space-y-4'>
+      <Link />
+      <Link />
+      <Link />
     </div>
   );
 }

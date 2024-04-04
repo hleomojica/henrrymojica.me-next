@@ -11,7 +11,7 @@ export default function Socials() {
         <Image
           src='/social/facebook.svg'
           alt='Facebook'
-          className='h-7 w-6'
+          className='h-7 w-7'
           width={100}
           height={100}
         />
@@ -24,7 +24,7 @@ export default function Socials() {
         <Image
           src='/social/instagram.svg'
           alt='Facebook'
-          className='h-7 w-6'
+          className='h-7 w-7'
           width={100}
           height={100}
         />
@@ -37,7 +37,7 @@ export default function Socials() {
         <Image
           src='/social/linkedin.svg'
           alt='Facebook'
-          className='h-7 w-6'
+          className='h-7 w-7'
           width={100}
           height={100}
         />
@@ -50,7 +50,7 @@ export default function Socials() {
         <Image
           src='/social/tiktok.svg'
           alt='Facebook'
-          className='h-7 w-6'
+          className='h-7 w-7'
           width={100}
           height={100}
         />
