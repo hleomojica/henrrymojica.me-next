@@ -37,7 +37,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className=''>
+      <body className='dark:bg-neutral-900'>
         <main className=''>
           {children}
           <Analytics />

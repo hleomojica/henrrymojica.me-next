@@ -76,7 +76,7 @@ export default function Home() {
   const [theme, setTheme] = useState('dark');
   return (
     <ThemeContext.Provider value={theme}>
-      <div className='mx-4 mb-40 mt-8 flex max-w-2xl flex-col antialiased md:flex-row lg:mx-auto'>
+      <div className='mx-4 mb-40 mt-8 flex max-w-2xl flex-col antialiased  md:flex-row lg:mx-auto'>
         <div className='mt-6 flex min-w-0 flex-auto flex-col px-2 md:px-0'>
           <div className='mx-4 mb-40 mt-16 flex flex-col items-start gap-5'>
             <h1 className='text-2xl font-bold dark:text-neutral-100'>
