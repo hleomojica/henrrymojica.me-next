@@ -28,3 +28,26 @@ To get a local copy up and running, follow these simple steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/hleomojica/henrrymojica.me-next.git
+   ```
+
+## Dev Server with HTTPS Proxy On macOS
+
+1. Install
+   ```bash
+   brew install mkcert
+   ```
+2. Install root certificate:
+   ```bash
+   mkcert -install
+   ```
+3. Generate certificate for localhost:
+
+   ```bash
+   mkcert localhost
+   ```
+
+4. Install the HTTPS proxy and run the proxy
+   ```bash
+   npm install -g local-ssl-proxy
+   local-ssl-proxy --source 3000 --target 3001 --cert localhost.pem --key localhost-key.pem
+   ```
