@@ -37,8 +37,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className='mx-4 mb-40 mt-8 flex max-w-2xl flex-col antialiased md:flex-row lg:mx-auto'>
-        <main className='mt-6 flex min-w-0 flex-auto flex-col px-2 md:px-0'>
+      <body className=''>
+        <main className=''>
           {children}
           <Analytics />
         </main>

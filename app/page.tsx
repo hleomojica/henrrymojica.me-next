@@ -76,41 +76,45 @@ export default function Home() {
   const [theme, setTheme] = useState('dark');
   return (
     <ThemeContext.Provider value={theme}>
-      <div className='flex flex-col items-start gap-5'>
-        <h1 className='text-2xl font-bold dark:text-neutral-100'>
-          Hey, I&apos;m Henrry Mojica 👋
-        </h1>
-        <div className='h-full w-full'>
-          <p className='text-md dark:text-neutral-100'>
-            Highly skilled Full-stack Software Developer with 4+ years of
-            experience. I&apos;m dedicated to crafting top-tier software
-            solutions, adept at adapting to new technologies, and skilled in
-            maintaining and upgrading applications. Collaboration is at the core
-            of my work, driving successful outcomes through effective
-            communication. I&apos;m committed to continuous professional growth
-            to stay at the forefront of the industry.
-          </p>
+      <div className='mx-4 mb-40 mt-8 flex max-w-2xl flex-col antialiased md:flex-row lg:mx-auto'>
+        <div className='mt-6 flex min-w-0 flex-auto flex-col px-2 md:px-0'>
+          <div className='mx-4 mb-40 mt-16 flex flex-col items-start gap-5'>
+            <h1 className='text-2xl font-bold dark:text-neutral-100'>
+              Hey, I&apos;m Henrry Mojica 👋
+            </h1>
+            <div className='h-full w-full'>
+              <p className='text-md dark:text-neutral-100'>
+                Highly skilled Full-stack Software Developer with 4+ years of
+                experience. I&apos;m dedicated to crafting top-tier software
+                solutions, adept at adapting to new technologies, and skilled in
+                maintaining and upgrading applications. Collaboration is at the
+                core of my work, driving successful outcomes through effective
+                communication. I&apos;m committed to continuous professional
+                growth to stay at the forefront of the industry.
+              </p>
 
-          {experiences.length > 0 && (
-            <div className='space-y-4sm:space-x-4 my-8 flex w-full flex-col space-x-0 sm:space-y-0'>
-              <h1 className='mb-2 text-xl'>Experience</h1>
-              <ExperienceList experiences={experiences} />
+              {experiences.length > 0 && (
+                <div className='space-y-4sm:space-x-4 my-8 flex w-full flex-col space-x-0 sm:space-y-0'>
+                  <h1 className='mb-2 text-xl'>Experience</h1>
+                  <ExperienceList experiences={experiences} />
+                </div>
+              )}
+
+              <div className='my-8 flex w-full flex-col space-x-0 space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0'>
+                <Suspense fallback={<ChannelSkeleton />}>
+                  <ChannelLink
+                    img={linkedin}
+                    name='Henrry Mojica'
+                    link='https://www.linkedin.com/in/hleomojica'
+                  />
+                  <ChannelLink
+                    img={github}
+                    name='@hleomojica'
+                    link='https://github.com/hleomojica'
+                  />
+                </Suspense>
+              </div>
             </div>
-          )}
-
-          <div className='my-8 flex w-full flex-col space-x-0 space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0'>
-            <Suspense fallback={<ChannelSkeleton />}>
-              <ChannelLink
-                img={linkedin}
-                name='Henrry Mojica'
-                link='https://www.linkedin.com/in/hleomojica'
-              />
-              <ChannelLink
-                img={github}
-                name='@hleomojica'
-                link='https://github.com/hleomojica'
-              />
-            </Suspense>
           </div>
         </div>
       </div>
