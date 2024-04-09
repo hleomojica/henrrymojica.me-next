@@ -49,5 +49,5 @@ To get a local copy up and running, follow these simple steps:
 4. Install the HTTPS proxy and run the proxy
    ```bash
    npm install -g local-ssl-proxy
-   local-ssl-proxy --source 3000 --target 3001 --cert localhost.pem --key localhost-key.pem
+   local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem
    ```

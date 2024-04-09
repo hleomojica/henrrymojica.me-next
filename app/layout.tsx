@@ -1,11 +1,8 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { GeistSans, GeistMono } from 'geist/font';
+import { GeistSans } from 'geist/font';
 import './globals.css';
 import { Analytics } from '@vercel/analytics/react';
 import Script from 'next/script';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Henrry Mojica',
@@ -13,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 import { storyblokInit, apiPlugin } from '@storyblok/react/rsc';
+import StoryblokBridgeLoader from '@storyblok/react/bridge-loader';
 
 storyblokInit({
   accessToken: process.env.SB_ACCESS_TOKEN,
@@ -48,6 +46,7 @@ export default function RootLayout({
         <main className=''>
           {children}
           <Analytics />
+          <StoryblokBridgeLoader options={{}} />
         </main>
       </body>
     </html>

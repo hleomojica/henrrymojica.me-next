@@ -3,7 +3,11 @@ import Links from './components/Links';
 import Socials from './components/Socials';
 import Bio from './components/Bio';
 
-export default function Page() {
+import { getStoryblokApi, StoryblokComponent } from '@storyblok/react/rsc';
+
+export default async function Page() {
+  const { data } = await fetchData();
+  console.log('data ->', data);
   return (
     <div className='relative flex min-h-screen flex-col items-center bg-rose-300 py-2'>
       <div className='flex w-full max-w-lg flex-col items-center px-4 py-8 '>
@@ -24,4 +28,25 @@ export default function Page() {
       </div>
     </div>
   );
+}
+
+export async function fetchData() {
+  let sbParams: Record<string, string> = { version: 'draft' };
+  const storyblokApi = getStoryblokApi();
+  const result = {
+    data: null,
+    error: null as Error | null,
+  };
+  try {
+    const response = await storyblokApi.get(
+      `cdn/stories/henrrymojica-me/ig`,
+      sbParams
+    );
+    result.data = response.data.story;
+    return result;
+  } catch (error: any) {
+    result.error = error;
+    console.error('Error fetching data', error);
+    return result;
+  }
 }
