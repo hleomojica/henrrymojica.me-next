@@ -3,11 +3,19 @@ import Links from './components/Links';
 import Socials from './components/Socials';
 import Bio from './components/Bio';
 
-import { getStoryblokApi, StoryblokComponent } from '@storyblok/react/rsc';
+import { getStoryblokApi, renderRichText } from '@storyblok/react/rsc';
 
 export default async function Page() {
   const { data } = await fetchData();
-  console.log('data ->', data);
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+  const content = data.content;
+  const bgColor = content.backgroundColor;
+  console.log('bgColor ->', bgColor);
+
+  // const renderedRichText = renderRichText(content.bio);
+  // console.log('renderedRichText ->', renderedRichText);
   return (
     <div className='relative flex min-h-screen flex-col items-center bg-rose-300 py-2'>
       <div className='flex w-full max-w-lg flex-col items-center px-4 py-8 '>
@@ -18,7 +26,7 @@ export default async function Page() {
           width={100}
           height={100}
         />
-        <h2 className='mb-2 text-lg font-bold text-white'>Carolina Calle</h2>
+        <h2 className='mb-2 text-lg font-bold text-white'>{content.name}</h2>
         <Socials />
         <Bio />
         <Links />
@@ -34,7 +42,7 @@ export async function fetchData() {
   let sbParams: Record<string, string> = { version: 'draft' };
   const storyblokApi = getStoryblokApi();
   const result = {
-    data: null,
+    data: null as any | null,
     error: null as Error | null,
   };
   try {
