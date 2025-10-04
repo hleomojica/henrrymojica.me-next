@@ -253,17 +253,14 @@ function PortfolioShowcase() {
     {
       title: 'Project Alpha',
       category: 'Web App',
-      color: 'from-orange-500 to-red-600',
     },
     {
       title: 'Project Beta',
       category: 'Mobile',
-      color: 'from-purple-500 to-pink-600',
     },
     {
       title: 'Project Gamma',
       category: 'Platform',
-      color: 'from-blue-500 to-cyan-600',
     },
   ];
 
@@ -281,17 +278,23 @@ function PortfolioShowcase() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className='group relative aspect-[3/4] cursor-pointer overflow-hidden rounded-2xl'
+              className='group relative aspect-[3/4] overflow-hidden rounded-2xl border-2 border-black/10 bg-white transition-all duration-300 hover:border-black/30 dark:border-white/10 dark:bg-black dark:hover:border-white/30'
             >
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${project.color} transition-transform duration-500 group-hover:scale-110`}
-              />
-              <div className='absolute inset-0 flex flex-col justify-end p-8 text-white'>
-                <div className='mb-2 text-sm font-bold uppercase tracking-wider opacity-90'>
+              {/* Coming Soon Badge */}
+              <div className='absolute right-4 top-4 z-10 rounded-full bg-black px-4 py-2 text-xs font-bold uppercase tracking-wider text-white dark:bg-white dark:text-black'>
+                Coming Soon
+              </div>
+
+              {/* Content */}
+              <div className='absolute inset-0 flex flex-col justify-end p-8'>
+                <div className='mb-2 text-sm font-bold uppercase tracking-wider opacity-60'>
                   {project.category}
                 </div>
                 <h3 className='text-3xl font-black'>{project.title}</h3>
               </div>
+
+              {/* Hover Effect - Subtle background shift */}
+              <div className='absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/5 dark:group-hover:bg-white/5' />
             </div>
           ))}
         </div>
