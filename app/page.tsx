@@ -2,6 +2,10 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { ThemeContext } from './context/MainContext';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCards, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-cards';
 
 // Navigation Component
 function Navigation() {
@@ -28,14 +32,74 @@ function Navigation() {
   );
 }
 
+// Card Swiper Component
+function CardSwiper() {
+  const cards = [
+    {
+      title: 'Development',
+      description: 'Building scalable applications',
+      gradient: 'from-orange-500 to-pink-500',
+      icon: '💻',
+    },
+    {
+      title: 'Design',
+      description: 'Creating beautiful interfaces',
+      gradient: 'from-purple-500 to-blue-500',
+      icon: '🎨',
+    },
+    {
+      title: 'Innovation',
+      description: 'Solving complex problems',
+      gradient: 'from-blue-500 to-cyan-500',
+      icon: '🚀',
+    },
+    {
+      title: 'Collaboration',
+      description: 'Working with amazing teams',
+      gradient: 'from-pink-500 to-red-500',
+      icon: '🤝',
+    },
+  ];
+
+  return (
+    <div className='mx-auto w-full max-w-[400px]'>
+      <Swiper
+        effect={'cards'}
+        grabCursor={true}
+        modules={[EffectCards, Autoplay]}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        className='aspect-[3/4] rounded-3xl'
+      >
+        {cards.map((card, index) => (
+          <SwiperSlide key={index}>
+            <div
+              className={`h-full w-full bg-gradient-to-br ${card.gradient} flex flex-col justify-between rounded-3xl p-12 text-white shadow-2xl`}
+            >
+              <div className='text-7xl'>{card.icon}</div>
+              <div>
+                <h3 className='mb-4 text-4xl font-black'>{card.title}</h3>
+                <p className='text-xl opacity-90'>{card.description}</p>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+}
+
 // Hero Section Component
 function HeroSection() {
   return (
     <section className='flex min-h-screen items-center justify-center px-8 pt-24'>
       <div className='w-full max-w-[1400px]'>
-        <div className='mb-12 flex items-start justify-between'>
+        {/* Top header with name and EST */}
+        <div className='mb-16 flex items-start justify-between'>
           <div className='flex-1'>
-            <h1 className='mb-6 text-[clamp(3rem,12vw,11rem)] font-black uppercase leading-[0.85] tracking-tighter'>
+            <h1 className='text-[clamp(3rem,12vw,11rem)] font-black uppercase leading-[0.85] tracking-tighter'>
               HENRRY
               <br />
               MOJICA
@@ -45,19 +109,43 @@ function HeroSection() {
             <div className='mb-2 text-sm font-bold uppercase tracking-wider'>
               EST.
             </div>
-            <div className='text-6xl font-black'>2016</div>
+            <div className='text-6xl font-black'>2020</div>
           </div>
         </div>
 
-        <div className='relative h-[60vh] min-h-[400px] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-orange-500 via-purple-600 to-blue-600'>
-          <div className='absolute inset-0 flex items-center justify-center'>
-            <div className='p-8 text-center text-white'>
-              <h2 className='mb-4 text-4xl font-bold md:text-6xl'>
-                Full-Stack Developer
+        {/* 50/50 Split Section */}
+        <div className='grid items-center gap-12 md:grid-cols-2'>
+          {/* Left: Card Swiper */}
+          <div className='flex justify-center md:justify-start'>
+            <CardSwiper />
+          </div>
+
+          {/* Right: Title & Description */}
+          <div className='space-y-8'>
+            <div>
+              <h2 className='mb-6 text-5xl font-black leading-tight md:text-7xl'>
+                Full-Stack
+                <br />
+                Developer
               </h2>
-              <p className='text-xl opacity-90 md:text-2xl'>
-                Building innovative digital experiences
+              <p className='text-xl leading-relaxed opacity-80 md:text-2xl'>
+                Building innovative digital experiences with modern technologies
+                and creative solutions.
               </p>
+            </div>
+            <div className='flex flex-wrap gap-4'>
+              <span className='rounded-full bg-black/5 px-6 py-3 text-sm font-bold dark:bg-white/5'>
+                React
+              </span>
+              <span className='rounded-full bg-black/5 px-6 py-3 text-sm font-bold dark:bg-white/5'>
+                Node.js
+              </span>
+              <span className='rounded-full bg-black/5 px-6 py-3 text-sm font-bold dark:bg-white/5'>
+                TypeScript
+              </span>
+              <span className='rounded-full bg-black/5 px-6 py-3 text-sm font-bold dark:bg-white/5'>
+                Next.js
+              </span>
             </div>
           </div>
         </div>
@@ -68,28 +156,106 @@ function HeroSection() {
 
 // About Section Component
 function AboutSection() {
+  const skills = [
+    {
+      name: 'Frontend',
+      tech: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+    },
+    { name: 'Backend', tech: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB'] },
+    { name: 'Tools', tech: ['Git', 'Docker', 'AWS', 'Vercel'] },
+  ];
+
   return (
-    <section id='about' className='px-8 py-32'>
+    <section
+      id='about'
+      className='bg-black/[0.02] px-8 py-32 dark:bg-white/[0.02]'
+    >
       <div className='mx-auto max-w-[1400px]'>
-        <div className='grid gap-16 md:grid-cols-2'>
-          <div>
-            <h2 className='mb-8 text-5xl font-black uppercase tracking-tight md:text-7xl'>
-              About Me
-            </h2>
+        <h2 className='mb-16 text-5xl font-black uppercase tracking-tight md:text-7xl'>
+          About Me
+        </h2>
+
+        <div className='grid gap-12 md:grid-cols-2'>
+          {/* Left: Bio */}
+          <div className='space-y-8'>
+            <div className='space-y-6 text-lg leading-relaxed'>
+              <p>
+                Highly skilled Full-stack Software Developer with 4+ years of
+                experience. I&apos;m dedicated to crafting top-tier software
+                solutions, adept at adapting to new technologies, and skilled in
+                maintaining and upgrading applications.
+              </p>
+              <p>
+                Collaboration is at the core of my work, driving successful
+                outcomes through effective communication. I&apos;m committed to
+                continuous professional growth to stay at the forefront of the
+                industry.
+              </p>
+            </div>
+
+            <div className='space-y-4'>
+              <h3 className='text-2xl font-black'>What I Do</h3>
+              <div className='grid grid-cols-2 gap-4'>
+                <div className='rounded-xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-black'>
+                  <div className='mb-3 text-3xl'>⚡</div>
+                  <h4 className='mb-2 font-bold'>Fast</h4>
+                  <p className='text-sm opacity-70'>Optimized performance</p>
+                </div>
+                <div className='rounded-xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-black'>
+                  <div className='mb-3 text-3xl'>📱</div>
+                  <h4 className='mb-2 font-bold'>Responsive</h4>
+                  <p className='text-sm opacity-70'>Mobile-first design</p>
+                </div>
+                <div className='rounded-xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-black'>
+                  <div className='mb-3 text-3xl'>🎨</div>
+                  <h4 className='mb-2 font-bold'>Creative</h4>
+                  <p className='text-sm opacity-70'>Modern interfaces</p>
+                </div>
+                <div className='rounded-xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-black'>
+                  <div className='mb-3 text-3xl'>🔒</div>
+                  <h4 className='mb-2 font-bold'>Secure</h4>
+                  <p className='text-sm opacity-70'>Best practices</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className='space-y-6 text-lg leading-relaxed'>
-            <p>
-              Highly skilled Full-stack Software Developer with 4+ years of
-              experience. I&apos;m dedicated to crafting top-tier software
-              solutions, adept at adapting to new technologies, and skilled in
-              maintaining and upgrading applications.
-            </p>
-            <p>
-              Collaboration is at the core of my work, driving successful
-              outcomes through effective communication. I&apos;m committed to
-              continuous professional growth to stay at the forefront of the
-              industry.
-            </p>
+
+          {/* Right: Skills */}
+          <div className='space-y-8'>
+            <h3 className='text-2xl font-black'>Tech Stack</h3>
+            {skills.map((category, index) => (
+              <div key={index} className='space-y-4'>
+                <h4 className='text-xl font-bold opacity-60'>
+                  {category.name}
+                </h4>
+                <div className='flex flex-wrap gap-3'>
+                  {category.tech.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className='cursor-default rounded-lg border border-black/10 bg-white px-5 py-3 text-sm font-bold transition-transform hover:scale-105 dark:border-white/10 dark:bg-black'
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+
+            {/* Stats */}
+            <div className='mt-12 grid grid-cols-3 gap-4 border-t border-black/10 pt-8 dark:border-white/10'>
+              <div>
+                <div className='mb-2 text-4xl font-black'>4+</div>
+                <div className='text-sm opacity-60'>Years Experience</div>
+              </div>
+              <div>
+                <div className='mb-2 text-4xl font-black'>50+</div>
+                <div className='text-sm opacity-60'>Projects Done</div>
+              </div>
+              <div>
+                <div className='mb-2 text-4xl font-black'>15+</div>
+                <div className='text-sm opacity-60'>Happy Clients</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
