@@ -37,7 +37,7 @@ function CardSwiper() {
   const photos = [
     '/images/henrry/hm-1.jpg',
     '/images/henrry/hm-2.jpg',
-    '/images/henrry/hm-3.png',
+    '/images/henrry/hm-3.jpg',
   ];
 
   return (
