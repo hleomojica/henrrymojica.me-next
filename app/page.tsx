@@ -34,32 +34,7 @@ function Navigation() {
 
 // Card Swiper Component
 function CardSwiper() {
-  const cards = [
-    {
-      title: 'Development',
-      description: 'Building scalable applications',
-      gradient: 'from-orange-500 to-pink-500',
-      icon: '💻',
-    },
-    {
-      title: 'Design',
-      description: 'Creating beautiful interfaces',
-      gradient: 'from-purple-500 to-blue-500',
-      icon: '🎨',
-    },
-    {
-      title: 'Innovation',
-      description: 'Solving complex problems',
-      gradient: 'from-blue-500 to-cyan-500',
-      icon: '🚀',
-    },
-    {
-      title: 'Collaboration',
-      description: 'Working with amazing teams',
-      gradient: 'from-pink-500 to-red-500',
-      icon: '🤝',
-    },
-  ];
+  const photos = ['/images/henrry/hm-1.jpg', '/images/henrry/hm-2.jpg'];
 
   return (
     <div className='mx-auto w-full max-w-[350px] lg:max-w-[400px]'>
@@ -80,20 +55,16 @@ function CardSwiper() {
           }}
           className='h-full w-full'
         >
-          {cards.map((card, index) => (
+          {photos.map((photo, index) => (
             <SwiperSlide key={index}>
-              <div
-                className={`flex h-full w-full flex-col justify-between rounded-3xl bg-gradient-to-br ${card.gradient} p-10 text-white shadow-2xl lg:p-12`}
-              >
-                <div className='text-6xl lg:text-7xl'>{card.icon}</div>
-                <div>
-                  <h3 className='mb-3 text-3xl font-black lg:mb-4 lg:text-4xl'>
-                    {card.title}
-                  </h3>
-                  <p className='text-lg opacity-90 lg:text-xl'>
-                    {card.description}
-                  </p>
-                </div>
+              <div className='relative h-full w-full overflow-hidden rounded-3xl shadow-2xl'>
+                <Image
+                  src={photo}
+                  alt={`Henrry Mojica photo ${index + 1}`}
+                  fill
+                  className='object-cover'
+                  priority={index === 0}
+                />
               </div>
             </SwiperSlide>
           ))}
