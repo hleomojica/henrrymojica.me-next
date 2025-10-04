@@ -232,7 +232,7 @@ function AboutSection() {
             {/* Stats */}
             <div className='mt-12 grid grid-cols-3 gap-4 border-t border-black/10 pt-8 dark:border-white/10'>
               <div>
-                <div className='mb-2 text-4xl font-black'>4+</div>
+                <div className='mb-2 text-4xl font-black'>5+</div>
                 <div className='text-sm opacity-60'>Years Experience</div>
               </div>
               <div>
