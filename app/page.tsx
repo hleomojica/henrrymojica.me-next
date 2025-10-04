@@ -110,13 +110,13 @@ function HeroSection() {
       <div className='w-full max-w-[1400px]'>
         {/* Single unified section with swiper left, content right */}
         <div className='grid items-center gap-12 lg:grid-cols-2'>
-          {/* Left: Card Swiper */}
-          <div className='flex justify-center lg:justify-start'>
+          {/* Left: Card Swiper (order-2 on mobile, order-1 on desktop) */}
+          <div className='order-2 flex justify-center lg:order-1 lg:justify-start'>
             <CardSwiper />
           </div>
 
-          {/* Right: Name, EST, Role & Description */}
-          <div className='space-y-8'>
+          {/* Right: Name, EST, Role & Description (order-1 on mobile, order-2 on desktop) */}
+          <div className='order-1 space-y-8 lg:order-2'>
             {/* Name and EST */}
             <div className='flex items-start justify-between'>
               <h1 className='flex-1 text-[clamp(3rem,10vw,8rem)] font-black uppercase leading-[0.85] tracking-tighter'>
