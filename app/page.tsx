@@ -62,31 +62,43 @@ function CardSwiper() {
   ];
 
   return (
-    <div className='mx-auto w-full max-w-[400px]'>
-      <Swiper
-        effect={'cards'}
-        grabCursor={true}
-        modules={[EffectCards, Autoplay]}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-        className='aspect-[3/4] rounded-3xl'
-      >
-        {cards.map((card, index) => (
-          <SwiperSlide key={index}>
-            <div
-              className={`h-full w-full bg-gradient-to-br ${card.gradient} flex flex-col justify-between rounded-3xl p-12 text-white shadow-2xl`}
-            >
-              <div className='text-7xl'>{card.icon}</div>
-              <div>
-                <h3 className='mb-4 text-4xl font-black'>{card.title}</h3>
-                <p className='text-xl opacity-90'>{card.description}</p>
+    <div className='mx-auto w-full max-w-[350px] lg:max-w-[400px]'>
+      <div className='relative h-[450px] w-full lg:h-[500px]'>
+        <Swiper
+          effect={'cards'}
+          grabCursor={true}
+          modules={[EffectCards, Autoplay]}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          cardsEffect={{
+            perSlideOffset: 8,
+            perSlideRotate: 2,
+            rotate: true,
+            slideShadows: false,
+          }}
+          className='h-full w-full'
+        >
+          {cards.map((card, index) => (
+            <SwiperSlide key={index}>
+              <div
+                className={`flex h-full w-full flex-col justify-between rounded-3xl bg-gradient-to-br ${card.gradient} p-10 text-white shadow-2xl lg:p-12`}
+              >
+                <div className='text-6xl lg:text-7xl'>{card.icon}</div>
+                <div>
+                  <h3 className='mb-3 text-3xl font-black lg:mb-4 lg:text-4xl'>
+                    {card.title}
+                  </h3>
+                  <p className='text-lg opacity-90 lg:text-xl'>
+                    {card.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 }
@@ -96,54 +108,55 @@ function HeroSection() {
   return (
     <section className='flex min-h-screen items-center justify-center px-8 pt-24'>
       <div className='w-full max-w-[1400px]'>
-        {/* Top header with name and EST */}
-        <div className='mb-16 flex items-start justify-between'>
-          <div className='flex-1'>
-            <h1 className='text-[clamp(3rem,12vw,11rem)] font-black uppercase leading-[0.85] tracking-tighter'>
-              HENRRY
-              <br />
-              MOJICA
-            </h1>
-          </div>
-          <div className='hidden text-right md:block'>
-            <div className='mb-2 text-sm font-bold uppercase tracking-wider'>
-              EST.
-            </div>
-            <div className='text-6xl font-black'>2020</div>
-          </div>
-        </div>
-
-        {/* 50/50 Split Section */}
-        <div className='grid items-center gap-12 md:grid-cols-2'>
+        {/* Single unified section with swiper left, content right */}
+        <div className='grid items-center gap-12 lg:grid-cols-2'>
           {/* Left: Card Swiper */}
-          <div className='flex justify-center md:justify-start'>
+          <div className='flex justify-center lg:justify-start'>
             <CardSwiper />
           </div>
 
-          {/* Right: Title & Description */}
+          {/* Right: Name, EST, Role & Description */}
           <div className='space-y-8'>
+            {/* Name and EST */}
+            <div className='flex items-start justify-between'>
+              <h1 className='flex-1 text-[clamp(3rem,10vw,8rem)] font-black uppercase leading-[0.85] tracking-tighter'>
+                HENRRY
+                <br />
+                MOJICA
+              </h1>
+              <div className='text-right'>
+                <div className='mb-1 text-xs font-bold uppercase tracking-wider opacity-60'>
+                  EST.
+                </div>
+                <div className='text-4xl font-black lg:text-5xl'>2020</div>
+              </div>
+            </div>
+
+            {/* Role & Description */}
             <div>
-              <h2 className='mb-6 text-5xl font-black leading-tight md:text-7xl'>
+              <h2 className='mb-6 text-4xl font-black leading-tight lg:text-6xl'>
                 Full-Stack
                 <br />
                 Developer
               </h2>
-              <p className='text-xl leading-relaxed opacity-80 md:text-2xl'>
+              <p className='text-lg leading-relaxed opacity-80 lg:text-xl'>
                 Building innovative digital experiences with modern technologies
                 and creative solutions.
               </p>
             </div>
-            <div className='flex flex-wrap gap-4'>
-              <span className='rounded-full bg-black/5 px-6 py-3 text-sm font-bold dark:bg-white/5'>
+
+            {/* Tech badges */}
+            <div className='flex flex-wrap gap-3'>
+              <span className='rounded-full bg-black/5 px-5 py-2.5 text-sm font-bold dark:bg-white/5'>
                 React
               </span>
-              <span className='rounded-full bg-black/5 px-6 py-3 text-sm font-bold dark:bg-white/5'>
+              <span className='rounded-full bg-black/5 px-5 py-2.5 text-sm font-bold dark:bg-white/5'>
                 Node.js
               </span>
-              <span className='rounded-full bg-black/5 px-6 py-3 text-sm font-bold dark:bg-white/5'>
+              <span className='rounded-full bg-black/5 px-5 py-2.5 text-sm font-bold dark:bg-white/5'>
                 TypeScript
               </span>
-              <span className='rounded-full bg-black/5 px-6 py-3 text-sm font-bold dark:bg-white/5'>
+              <span className='rounded-full bg-black/5 px-5 py-2.5 text-sm font-bold dark:bg-white/5'>
                 Next.js
               </span>
             </div>
