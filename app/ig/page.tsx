@@ -3,7 +3,28 @@ import Links from './components/Links';
 import Socials from './components/Socials';
 import Bio from './components/Bio';
 
-import { getStoryblokApi, renderRichText } from '@storyblok/react/rsc';
+import { getStoryblokApi } from '@storyblok/react/rsc';
+
+async function fetchData() {
+  let sbParams: Record<string, string> = { version: 'draft' };
+  const storyblokApi = getStoryblokApi();
+  const result = {
+    data: null as any | null,
+    error: null as Error | null,
+  };
+  try {
+    const response = await storyblokApi.get(
+      `cdn/stories/henrrymojica-me/ig`,
+      sbParams
+    );
+    result.data = response.data.story;
+    return result;
+  } catch (error: any) {
+    result.error = error;
+    console.error('Error fetching data', error);
+    return result;
+  }
+}
 
 export default async function Page() {
   const { data } = await fetchData();
@@ -14,8 +35,6 @@ export default async function Page() {
   const bgColor = content.backgroundColor;
   console.log('bgColor ->', bgColor);
 
-  // const renderedRichText = renderRichText(content.bio);
-  // console.log('renderedRichText ->', renderedRichText);
   return (
     <div className='relative flex min-h-screen flex-col items-center bg-rose-300 py-2'>
       <div className='flex w-full max-w-lg flex-col items-center px-4 py-8 '>
@@ -36,25 +55,4 @@ export default async function Page() {
       </div>
     </div>
   );
-}
-
-export async function fetchData() {
-  let sbParams: Record<string, string> = { version: 'draft' };
-  const storyblokApi = getStoryblokApi();
-  const result = {
-    data: null as any | null,
-    error: null as Error | null,
-  };
-  try {
-    const response = await storyblokApi.get(
-      `cdn/stories/henrrymojica-me/ig`,
-      sbParams
-    );
-    result.data = response.data.story;
-    return result;
-  } catch (error: any) {
-    result.error = error;
-    console.error('Error fetching data', error);
-    return result;
-  }
 }

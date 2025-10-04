@@ -366,7 +366,7 @@ function Footer() {
 }
 
 export default function Home() {
-  const [theme, setTheme] = useState('dark');
+  const [theme] = useState('dark');
   return (
     <ThemeContext.Provider value={theme}>
       <main className='antialiased'>
