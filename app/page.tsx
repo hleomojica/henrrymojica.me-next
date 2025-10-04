@@ -128,7 +128,7 @@ function HeroSection() {
                 <div className='mb-1 text-xs font-bold uppercase tracking-wider opacity-60'>
                   EST.
                 </div>
-                <div className='text-4xl font-black lg:text-5xl'>2020</div>
+                <div className='text-4xl font-black lg:text-5xl'>2016</div>
               </div>
             </div>
 
