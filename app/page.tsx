@@ -34,7 +34,11 @@ function Navigation() {
 
 // Card Swiper Component
 function CardSwiper() {
-  const photos = ['/images/henrry/hm-1.jpg', '/images/henrry/hm-2.jpg'];
+  const photos = [
+    '/images/henrry/hm-1.jpg',
+    '/images/henrry/hm-2.jpg',
+    '/images/henrry/hm-3.png',
+  ];
 
   return (
     <div className='mx-auto w-full max-w-[350px] lg:max-w-[400px]'>
@@ -49,7 +53,7 @@ function CardSwiper() {
           }}
           cardsEffect={{
             perSlideOffset: 8,
-            perSlideRotate: 2,
+            perSlideRotate: 3,
             rotate: true,
             slideShadows: false,
           }}
