@@ -47,6 +47,7 @@ function CardSwiper() {
           effect={'cards'}
           grabCursor={true}
           modules={[EffectCards, Autoplay]}
+          loop={true}
           autoplay={{
             delay: 3000,
             disableOnInteraction: false,
