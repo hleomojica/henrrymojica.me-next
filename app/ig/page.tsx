@@ -2,8 +2,19 @@ import Image from 'next/image';
 import Links from './components/Links';
 import Socials from './components/Socials';
 import Bio from './components/Bio';
+import type { Metadata } from 'next';
 
 import { getStoryblokApi } from '@storyblok/react/rsc';
+
+export const metadata: Metadata = {
+  title: 'Bio Link',
+  description:
+    'Connect with Henrry Mojica - Links to social profiles and contact information.',
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 async function fetchData() {
   let sbParams: Record<string, string> = { version: 'draft' };
