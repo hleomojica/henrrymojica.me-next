@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: '%s | Henrry Mojica',
   },
   description:
-    'Highly skilled Full-Stack Software Developer with 5+ years of experience building innovative digital experiences with React, Next.js, Node.js, and TypeScript. Available for freelance projects and full-time opportunities.',
+    'Highly skilled Full-Stack Software Developer with 6+ years of experience building innovative digital experiences with React, Next.js, Node.js, and TypeScript. Available for freelance projects and full-time opportunities.',
   keywords: [
     'Full-Stack Developer',
     'Software Engineer',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     url: 'https://henrrymojica.me',
     title: 'Henrry Mojica - Full-Stack Developer',
     description:
-      'Full-Stack Software Developer with 5+ years of experience. Specialized in React, Next.js, Node.js, and TypeScript.',
+      'Full-Stack Software Developer with 6+ years of experience. Specialized in React, Next.js, Node.js, and TypeScript.',
     siteName: 'Henrry Mojica Portfolio',
     images: [
       {
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Henrry Mojica - Full-Stack Developer',
     description:
-      'Full-Stack Software Developer with 5+ years of experience. Specialized in React, Next.js, Node.js, and TypeScript.',
+      'Full-Stack Software Developer with 6+ years of experience. Specialized in React, Next.js, Node.js, and TypeScript.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -123,7 +123,7 @@ export default function RootLayout({
               image: 'https://henrrymojica.me/og-image.jpg',
               jobTitle: 'Full-Stack Software Developer',
               description:
-                'Full-Stack Software Developer with 5+ years of experience specializing in React, Next.js, Node.js, and TypeScript',
+                'Full-Stack Software Developer with 6+ years of experience specializing in React, Next.js, Node.js, and TypeScript',
               knowsAbout: [
                 'JavaScript',
                 'TypeScript',

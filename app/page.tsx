@@ -169,7 +169,7 @@ function AboutSection() {
           <div className='space-y-8'>
             <div className='space-y-6 text-lg leading-relaxed'>
               <p>
-                Highly skilled Full-stack Software Developer with 4+ years of
+                Highly skilled Full-stack Software Developer with 6+ years of
                 experience. I&apos;m dedicated to crafting top-tier software
                 solutions, adept at adapting to new technologies, and skilled in
                 maintaining and upgrading applications.
@@ -233,7 +233,7 @@ function AboutSection() {
             {/* Stats */}
             <div className='mt-12 grid grid-cols-3 gap-4 border-t border-black/10 pt-8 dark:border-white/10'>
               <div>
-                <div className='mb-2 text-4xl font-black'>5+</div>
+                <div className='mb-2 text-4xl font-black'>6+</div>
                 <div className='text-sm opacity-60'>Years Experience</div>
               </div>
               <div>
