@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Comprehensive SEO metadata (Open Graph, Twitter Cards, structured data)
+- Dynamic sitemap generation at `/sitemap.xml`
+- robots.txt file for search engine crawlers
+- Optimized 1200x630px Open Graph social share image
+- JSON-LD structured data (Person and Website schemas)
+
+### Changed
+- Updated experience from 5+ to 6+ years across all pages
+- Card swiper now loops infinitely
+- Enhanced metadata with keywords and detailed descriptions
+
 ## [0.1.0] - 2024-04-05
 
 ### Added
